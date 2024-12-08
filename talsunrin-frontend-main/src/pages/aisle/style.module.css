@@ -1,0 +1,123 @@
+
+.fire_extinguisher {
+  width: 150px; /* 이미지 크기 조절 */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: absolute;
+  bottom: 25%;
+  right: 30%;
+  filter: blur(2px);
+}
+.point{
+  width: 150px; /* 이미지 크기 조절 */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: absolute;
+  bottom: 40%;
+  right: 5%;
+  filter: blur(1px);
+  /* background-color: whitesmoke; */
+}
+.door{
+  width: 160px; /* 이미지 크기 조절 */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: absolute;
+  bottom: 44%;
+  right: 44%;
+  filter: blur(1px);
+  /* background-color: whitesmoke; */
+}
+.classroomdoor{
+    width: 160px; /* 이미지 크기 조절 */
+    height: 600px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: absolute;
+    bottom: 10%;
+    right: 65%;
+    filter: blur(1px);
+    /* background-color: whitesmoke; */
+  }
+.image:hover {
+  transform: scale(1.05); /* 이미지 확대 효과 */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.textBox {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.closeButton {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: #ff7575;
+}
+.container{
+  /* background-image: url("/aisle.jpg"); */
+  width: 100vw;
+  height: 100vh;
+  /* filter: blur(5px);
+  repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+opacity: 0;  /* 애니메이션 시작 전에 요소를 숨김 */
+transform: translateX(-100%);  /* 처음에 화면 밖에 위치 */
+animation: slideIn 1s forwards;  /* 애니메이션 */
+}
+
+
+/* 화면이 슬라이드인 되는 애니메이션 */
+@keyframes slideIn {
+0% {
+transform: translateX(-10%);  /* 화면 왼쪽 밖 */
+opacity: 0.8;  /* 처음에는 안 보임 */
+}
+100% {
+transform: translateX(0);  /* 화면 중앙으로 슬라이딩 */
+opacity: 1;  /* 완전히 보이게 됨 */
+}
+}
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/aisle.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px);
+  
+  z-index: -1;
+}

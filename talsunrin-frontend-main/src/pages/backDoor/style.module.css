@@ -1,0 +1,115 @@
+/* 공통 컨테이너 스타일 */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  overflow: hidden; /* Prevent overflow from image resizing */
+  user-select: none; /* 요소 선택 방지 */
+  background-size: cover; /* Ensure the container covers the screen */
+  background-position: center; /* Center the background */
+  background-repeat: no-repeat; /* Prevent repeating background images */
+  transition: background-image 0.5s ease; /* Smooth transition when changing backgrounds */
+  background-image: url("/images/endDoor.jpg");
+}
+.content {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+/* 배경 이미지 */
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover the entire screen */
+  z-index: -1; /* Ensure it stays behind the speech bubble */
+  user-select: none; /* 요소 선택 방지 */
+}
+
+/* 대화 말풍선 */
+.speechBubble {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.5rem;
+  max-width: calc(100% - 40px);
+  margin: 0 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1; /* Ensure it stays on top of the background image */
+  margin-bottom: 20px;
+  user-select: none; /* 요소 선택 방지 */
+}
+
+.backAisle {
+  position: absolute;
+  top: 100%%;
+  transform: translateY(-50%) rotate(180deg);
+  width: 50px;
+  height: 50px;
+}
+
+.open {
+  position: absolute;
+  top: 50%;
+  left: 52.5%;
+  transform: translateY(-50%) rotate(180deg);
+  width: 50px;
+  height: 50px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* 어두운 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 모든 요소 위 */
+}
+
+.textBox {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 500px;
+  text-align: center;
+}
+
+.closeButton {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: #ff7575;
+}
+
+.fire_extinguisher {
+  width: 100px; /* 이미지 크기 조절 */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: absolute;
+  bottom: 0%;
+  right: 15%;
+  filter: blur(2px);
+}

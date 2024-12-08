@@ -1,0 +1,126 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* 아래쪽에 배치 */
+  overflow: hidden;
+  opacity: 0; /* 애니메이션 시작 전에 요소를 숨김 */
+  transform: translateX(-100%); /* 처음에 화면 밖에 위치 */
+  animation: slideIn 1s forwards; /* 애니메이션 */
+}
+
+/* 화면이 슬라이드인 되는 애니메이션 */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-10%); /* 화면 왼쪽 밖 */
+    opacity: 0.8; /* 처음에는 안 보임 */
+  }
+  100% {
+    transform: translateX(0); /* 화면 중앙으로 슬라이딩 */
+    opacity: 1; /* 완전히 보이게 됨 */
+  }
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* 배경 이미지 뒤로 배치 */
+  user-select: none;
+  pointer-events: none;
+  filter: blur(5px); /* 배경 이미지에 블러 효과 */
+}
+
+.people {
+  position: absolute; /* 절대 위치로 배치 */
+  top: 55%; /* 세로 중앙 */
+  left: 52.5%; /* 가로 중앙 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 이미지 크기를 기준으로 정확한 중앙 배치 */
+  cursor: pointer;
+  transition: transform 0.2s ease; /* 클릭 시 애니메이션 효과 */
+  width: 100px;
+  height: 100px;
+}
+
+.people:hover {
+  transform: translate(-50%, -50%) scale(1.1); /* 마우스를 올릴 때 약간 확대 */
+}
+
+.speechBubble {
+  position: absolute;
+  bottom: 20px; /* 화면 아래쪽 여백 */
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.5rem;
+  max-width: calc(100% - 40px);
+  text-align: center;
+  z-index: 2; /* people 이미지 위에 표시 */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* 어두운 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 모든 요소 위 */
+}
+
+.textBox {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+  position: absolute;
+  z-index: 10; /* 다른 요소보다 앞에 표시 */
+}
+
+.closeButton {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: #ff7575;
+}
+
+.backClassroom {
+  bottom: 0%;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  -webkit-mask-image: url("./images/downarrow.webp");
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url("./images/downarrow.webp");
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  background-color: white;
+  user-select: none;
+}
